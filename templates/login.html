@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <header></header>
+    <div class="cartao cartao-login">
+        <form method="POST">
+            <h1>Login</h1>
+
+            <label for="cpf_login">CPF:</label>
+            <input type="text" id="cpf_login" name="cpf_login">
+
+            <label for="senha_login">Senha:</label>
+            <input type="password" id="senha_login" name="senha_login">
+
+            <button type="submit">ENTRAR</button>
+        </form>
+    </div>
+    {% if resultado == True %}
+        <p>Bem-vindo, {{ nome }}!</p>
+    {% elif resultado == False %}
+        <p>CPF ou senha inválidos.</p>
+    {% elif resultado is none and nome == '' %}
+        <p>Nenhuma conta cadastrada ainda.</p>
+    {% endif %}
+
+</body>
+</html>
